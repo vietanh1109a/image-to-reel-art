@@ -53,13 +53,8 @@ const HowItWorksSection = () => {
               >
                 <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group">
                   <div className="flex flex-col items-center text-center">
-                    {/* Number badge */}
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground font-bold shadow-lg">
-                      {step.number}
-                    </div>
-                    
                     {/* Icon */}
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mt-4 group-hover:bg-primary/20 transition-colors">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                       <step.icon className="w-8 h-8 text-primary" />
                     </div>
                     
