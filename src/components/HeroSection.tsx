@@ -1,8 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-video-creation.jpg";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Download } from "lucide-react";
+import { useState } from "react";
 
 const HeroSection = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Gradient background */}
@@ -33,13 +45,67 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground group"
-              >
-                Dùng Thử Miễn Phí
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                  <Button 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground group"
+                  >
+                    Dùng Thử Miễn Phí
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                      SRC AI
+                    </DialogTitle>
+                    <DialogDescription className="text-center">
+                      Chọn phiên bản để tải xuống
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <button 
+                      className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10 group"
+                      onClick={() => {
+                        // Add Windows download logic here
+                        console.log("Downloading Windows version");
+                      }}
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+                        </svg>
+                      </div>
+                      <div className="flex-1 text-left">
+                        <h3 className="font-semibold text-foreground">Tải cho Windows</h3>
+                        <p className="text-sm text-muted-foreground">Phiên bản Windows 10/11</p>
+                      </div>
+                      <Download className="w-5 h-5 text-primary" />
+                    </button>
+
+                    <button 
+                      className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10 group"
+                      onClick={() => {
+                        // Add CapCut download logic here
+                        console.log("Downloading CapCut version");
+                      }}
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l7.5 3.75v7.14L12 18.82l-7.5-3.75V7.93L12 4.18z"/>
+                          <path d="M12 8l-4 2v4l4 2 4-2v-4l-4-2zm0 1.82l2 1v2.36l-2 1-2-1V10.82l2-1z"/>
+                        </svg>
+                      </div>
+                      <div className="flex-1 text-left">
+                        <h3 className="font-semibold text-foreground">Tải cho CapCut</h3>
+                        <p className="text-sm text-muted-foreground">Plugin CapCut Editor</p>
+                      </div>
+                      <Download className="w-5 h-5 text-primary" />
+                    </button>
+                  </div>
+                </DialogContent>
+              </Dialog>
               
               <Button 
                 size="lg" 
