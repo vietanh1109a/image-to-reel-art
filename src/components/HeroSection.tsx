@@ -111,6 +111,9 @@ const HeroSection = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-border hover:bg-card group"
+                onClick={() => {
+                  document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 <Play className="mr-2 w-5 h-5" />
                 Tìm hiểu thêm
@@ -119,13 +122,13 @@ const HeroSection = () => {
             
             <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <span className="text-primary">✓</span> Miễn phí 7 ngày
+                <span className="text-primary">✓</span> Miễn phí trải nghiệm
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-primary">✓</span> Không cần thẻ tín dụng
+                <span className="text-primary">✓</span> Giao diện thân thiện
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-primary">✓</span> Hủy bất cứ lúc nào
+                <span className="text-primary">✓</span> Tính năng vượt trội
               </div>
             </div>
           </div>

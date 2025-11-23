@@ -6,7 +6,7 @@ const plans = [
   {
     name: "Miễn Phí",
     price: "0đ",
-    period: "/tháng",
+    period: "",
     description: "Hoàn hảo để bắt đầu",
     features: [
       "5 video mỗi tháng",
@@ -14,30 +14,45 @@ const plans = [
       "Thư viện mẫu cơ bản",
       "Hỗ trợ email"
     ],
-    cta: "Bắt đầu miễn phí",
+    cta: "Đặt mua",
     popular: false
   },
   {
-    name: "Pro",
+    name: "1 Tháng",
     price: "299,000đ",
     period: "/tháng",
-    description: "Cho người sáng tạo nội dung",
+    description: "Gói theo tháng linh hoạt",
     features: [
       "50 video mỗi tháng",
+      "Độ phân giải 1080p",
+      "Toàn bộ thư viện mẫu",
+      "Không có watermark",
+      "Hỗ trợ ưu tiên"
+    ],
+    cta: "Đặt mua",
+    popular: false
+  },
+  {
+    name: "3 Tháng",
+    price: "799,000đ",
+    period: "/3 tháng",
+    description: "Tiết kiệm hơn với gói 3 tháng",
+    features: [
+      "Không giới hạn video",
       "Độ phân giải 1080p",
       "Toàn bộ thư viện mẫu",
       "Không có watermark",
       "Hỗ trợ ưu tiên",
       "Export nhiều định dạng"
     ],
-    cta: "Dùng thử 7 ngày",
+    cta: "Đặt mua",
     popular: true
   },
   {
-    name: "Business",
-    price: "999,000đ",
-    period: "/tháng",
-    description: "Cho doanh nghiệp",
+    name: "6 Tháng",
+    price: "1,499,000đ",
+    period: "/6 tháng",
+    description: "Giá tốt nhất cho 6 tháng",
     features: [
       "Không giới hạn video",
       "Độ phân giải 4K",
@@ -47,7 +62,7 @@ const plans = [
       "Quản lý team",
       "Phân tích nâng cao"
     ],
-    cta: "Liên hệ sales",
+    cta: "Đặt mua",
     popular: false
   }
 ];
@@ -65,7 +80,7 @@ const PricingSection = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <Card 
               key={index}
