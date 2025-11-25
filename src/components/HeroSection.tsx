@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, BookOpen, Users } from "lucide-react";
 import heroImage from "@/assets/hero-video-creation.jpg";
 import {
   Dialog,
@@ -102,6 +102,40 @@ const HeroSection = () => {
                         <p className="text-sm text-muted-foreground">Plugin CapCut Editor</p>
                       </div>
                       <Download className="w-5 h-5 text-primary" />
+                    </button>
+
+                    <button 
+                      className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10 group"
+                      onClick={() => {
+                        // Add user guide link logic here
+                        console.log("Opening user guide");
+                      }}
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <BookOpen className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="flex-1 text-left">
+                        <h3 className="font-semibold text-foreground">Hướng dẫn sử dụng</h3>
+                        <p className="text-sm text-muted-foreground">Xem tài liệu hướng dẫn</p>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-primary" />
+                    </button>
+
+                    <button 
+                      className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/10 group"
+                      onClick={() => {
+                        // Add support group link logic here
+                        console.log("Opening support group");
+                      }}
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <Users className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="flex-1 text-left">
+                        <h3 className="font-semibold text-foreground">Nhóm hỗ trợ veo3</h3>
+                        <p className="text-sm text-muted-foreground">Tham gia cộng đồng hỗ trợ</p>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-primary" />
                     </button>
                   </div>
                 </DialogContent>
