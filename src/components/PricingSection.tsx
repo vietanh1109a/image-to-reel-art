@@ -107,11 +107,7 @@ const PricingSection = () => {
               </div>
               
               <Button 
-                className={`w-full mb-6 ${
-                  plan.popular 
-                    ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
-                    : 'bg-card border border-border hover:bg-muted'
-                }`}
+                className="w-full mb-6 bg-primary hover:bg-primary/90 text-primary-foreground"
                 size="lg"
               >
                 {plan.cta}
