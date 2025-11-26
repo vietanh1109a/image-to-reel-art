@@ -1,4 +1,4 @@
-import { Gift, Sparkles, BookOpen, GraduationCap, Users } from "lucide-react";
+import { Gift, Sparkles, BookOpen, GraduationCap, Users, HelpCircle } from "lucide-react";
 
 const benefits = [
   {
@@ -25,6 +25,11 @@ const benefits = [
     icon: Users,
     title: "Lớp Học Miễn Phí",
     description: "Tham gia các lớp học miễn phí do chúng tôi tổ chức."
+  },
+  {
+    icon: HelpCircle,
+    title: "Kiến Thức",
+    description: "Hỏi đáp khúc mắc các vấn đề xoay quanh các lĩnh vực mmo miễn phí phù hợp với người mới bắt đầu."
   }
 ];
 
