@@ -1,76 +1,95 @@
-import { Gift, Sparkles, BookOpen, GraduationCap, Users, HelpCircle } from "lucide-react";
+import { Gift, Sparkles, BookOpen, GraduationCap, Users, HelpCircle, Star } from "lucide-react";
 
 const benefits = [
   {
     icon: Gift,
-    title: "Tặng Tài Khoản",
-    description: "Tặng miễn phí tài khoản Veo3 khi sử dụng dịch vụ."
+    title: "Tặng Tài Khoản Veo3",
+    description: "Tặng miễn phí tài khoản Veo3 khi sử dụng dịch vụ.",
+    color: "from-pink-500/20 to-rose-500/10",
+    iconColor: "text-pink-400"
   },
   {
     icon: Sparkles,
     title: "Miễn phí Capcut Pro",
-    description: "Được sử dụng miễn phí các công cụ trả phí của Capcut Pro trong thời gian dùng tool."
+    description: "Sử dụng miễn phí các công cụ trả phí của Capcut Pro.",
+    color: "from-purple-500/20 to-violet-500/10",
+    iconColor: "text-purple-400"
   },
   {
     icon: BookOpen,
     title: "Kho Prompt Khổng Lồ",
-    description: "Truy cập miễn phí vào thư viện prompt đa dạng và phong phú."
+    description: "Truy cập miễn phí thư viện prompt đa dạng và phong phú.",
+    color: "from-blue-500/20 to-cyan-500/10",
+    iconColor: "text-blue-400"
   },
   {
     icon: GraduationCap,
     title: "Thư Viện Khóa Học AI",
-    description: "Cung cấp tài liệu và kiến thức chuyên sâu về AI."
+    description: "Tài liệu và kiến thức chuyên sâu về AI.",
+    color: "from-green-500/20 to-emerald-500/10",
+    iconColor: "text-green-400"
   },
   {
     icon: Users,
     title: "Lớp Học Miễn Phí",
-    description: "Tham gia các lớp học miễn phí do chúng tôi tổ chức."
+    description: "Tham gia các lớp học miễn phí do chúng tôi tổ chức.",
+    color: "from-orange-500/20 to-amber-500/10",
+    iconColor: "text-orange-400"
   },
   {
     icon: HelpCircle,
-    title: "Kiến Thức",
-    description: "Hỏi đáp khúc mắc các vấn đề xoay quanh các lĩnh vực mmo miễn phí phù hợp với người mới bắt đầu."
+    title: "Hỗ Trợ 24/7",
+    description: "Hỏi đáp khúc mắc các vấn đề, phù hợp với người mới bắt đầu.",
+    color: "from-cyan-500/20 to-teal-500/10",
+    iconColor: "text-cyan-400"
   }
 ];
 
 const BenefitsSection = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background" />
+      <div className="absolute inset-0 mesh-gradient-subtle" />
+      <div className="absolute inset-0 noise" />
       
       <div className="container mx-auto px-6 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded text-sm font-mono text-primary mb-6 animate-fade-in">
-            <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-            BENEFITS
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 animate-fade-in">
+            <Star className="w-4 h-4 text-yellow-400" />
+            <span className="text-sm font-medium text-muted-foreground">Quyền lợi độc quyền</span>
           </div>
           
-          <h2 className="text-3xl lg:text-4xl font-semibold mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <span className="text-foreground">Quyền Lợi </span>
-            <span className="text-primary">Đặc Biệt</span>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <span className="text-foreground">Nhận </span>
+            <span className="gradient-text">nhiều hơn</span>
+            <span className="text-foreground"> với SRC AI</span>
           </h2>
           
-          <p className="text-muted-foreground max-w-xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Nhận được nhiều lợi ích độc quyền khi trải nghiệm dịch vụ của chúng tôi
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Các quyền lợi đặc biệt chỉ dành cho thành viên
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Benefits grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
               className="group animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="h-full bg-card border border-border rounded-lg p-6 hover:border-primary/30 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <benefit.icon className="w-5 h-5 text-primary" />
+              <div className="h-full glass-card rounded-2xl p-6 hover-lift relative overflow-hidden">
+                {/* Gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                
+                <div className="relative z-10 flex gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <benefit.icon className={`w-6 h-6 ${benefit.iconColor}`} />
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                    <h3 className="text-lg font-bold text-foreground mb-2">
                       {benefit.title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
