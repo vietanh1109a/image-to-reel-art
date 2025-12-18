@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, Sparkles, Crown } from "lucide-react";
+import { Check } from "lucide-react";
 
 const plans = [
   {
@@ -14,8 +14,7 @@ const plans = [
       "Hỗ trợ email"
     ],
     cta: "Đặt mua",
-    popular: false,
-    gradient: "from-muted to-muted"
+    popular: false
   },
   {
     name: "1 Tháng",
@@ -30,8 +29,7 @@ const plans = [
       "Hỗ trợ ưu tiên"
     ],
     cta: "Đặt mua",
-    popular: false,
-    gradient: "from-primary/50 to-secondary/50"
+    popular: false
   },
   {
     name: "3 Tháng",
@@ -47,8 +45,7 @@ const plans = [
       "Export nhiều định dạng"
     ],
     cta: "Đặt mua",
-    popular: true,
-    gradient: "from-primary via-secondary to-accent"
+    popular: true
   },
   {
     name: "6 Tháng",
@@ -65,96 +62,82 @@ const plans = [
       "Phân tích nâng cao"
     ],
     cta: "Đặt mua",
-    popular: false,
-    gradient: "from-secondary to-accent"
+    popular: false
   }
 ];
 
 const PricingSection = () => {
   return (
-    <section id="pricing" className="relative py-32 overflow-hidden">
+    <section id="pricing" className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-6 animate-fade-in">
-            <Crown className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">Pricing Plans</span>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded text-sm font-mono text-primary mb-6 animate-fade-in">
+            <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+            PRICING
           </div>
           
-          <h2 className="text-4xl lg:text-6xl font-bold font-display mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <h2 className="text-3xl lg:text-4xl font-semibold mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <span className="text-foreground">Bảng Giá </span>
-            <span className="gradient-text">Linh Hoạt</span>
+            <span className="text-primary">Linh Hoạt</span>
           </h2>
           
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Chọn gói phù hợp với nhu cầu của bạn. Nâng cấp hoặc hạ cấp bất cứ lúc nào
+          <p className="text-muted-foreground max-w-xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Chọn gói phù hợp với nhu cầu của bạn
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div 
               key={index}
-              className={`group relative animate-fade-in ${plan.popular ? 'lg:-mt-4 lg:mb-4' : ''}`}
+              className={`relative animate-fade-in ${plan.popular ? 'lg:-mt-2 lg:mb-2' : ''}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Popular badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <div className="flex items-center gap-1.5 px-4 py-1.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-full text-primary-foreground text-sm font-semibold shadow-lg glow-md">
-                    <Sparkles className="w-4 h-4" />
-                    PHỔ BIẾN NHẤT
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <div className="px-3 py-1 bg-primary text-primary-foreground text-xs font-mono rounded">
+                    RECOMMENDED
                   </div>
                 </div>
               )}
               
-              {/* Glow effect */}
-              <div className={`absolute inset-0 bg-gradient-to-r ${plan.gradient} rounded-2xl blur-xl opacity-0 ${plan.popular ? 'opacity-30' : 'group-hover:opacity-20'} transition-opacity duration-500`} />
-              
-              <div className={`relative h-full rounded-2xl p-8 transition-all duration-500 group-hover:-translate-y-2 ${
-                plan.popular 
-                  ? 'glass-strong border-primary/50 glow-sm' 
-                  : 'glass hover:border-primary/30'
+              <div className={`h-full bg-card border rounded-lg p-6 transition-all duration-300 hover:border-primary/30 ${
+                plan.popular ? 'border-primary/50' : 'border-border'
               }`}>
-                {/* Plan header */}
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold font-display text-foreground mb-2">{plan.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
+                {/* Header */}
+                <div className="text-center mb-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-1">{plan.name}</h3>
+                  <p className="text-xs text-muted-foreground mb-4">{plan.description}</p>
                   
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className={`text-5xl font-bold font-display ${plan.popular ? 'gradient-text' : 'text-foreground'}`}>
+                    <span className={`text-3xl font-semibold ${plan.popular ? 'text-primary' : 'text-foreground'}`}>
                       {plan.price}
                     </span>
-                    <span className="text-muted-foreground text-lg">{plan.period}</span>
+                    <span className="text-sm text-muted-foreground">{plan.period}</span>
                   </div>
                 </div>
                 
-                {/* CTA Button */}
+                {/* CTA */}
                 <Button 
-                  className={`w-full mb-8 py-6 font-semibold text-base transition-all duration-300 ${
+                  className={`w-full mb-6 ${
                     plan.popular 
-                      ? 'bg-gradient-to-r from-primary via-secondary to-accent text-primary-foreground glow-sm hover:glow-md' 
-                      : 'glass border-border/50 hover:border-primary/50 hover:glow-sm'
+                      ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
+                      : 'bg-muted hover:bg-muted/80 text-foreground border border-border'
                   }`}
-                  size="lg"
+                  size="sm"
                 >
                   {plan.cta}
                 </Button>
                 
                 {/* Features */}
-                <ul className="space-y-4">
+                <ul className="space-y-2">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                        plan.popular 
-                          ? 'bg-gradient-to-r from-primary to-secondary' 
-                          : 'bg-primary/20'
-                      }`}>
-                        <Check className={`w-3 h-3 ${plan.popular ? 'text-primary-foreground' : 'text-primary'}`} />
-                      </div>
+                    <li key={featureIndex} className="flex items-start gap-2 text-sm">
+                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${plan.popular ? 'text-primary' : 'text-muted-foreground'}`} />
                       <span className="text-muted-foreground">{feature}</span>
                     </li>
                   ))}
